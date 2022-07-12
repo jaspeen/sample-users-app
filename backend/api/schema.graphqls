@@ -1,0 +1,65 @@
+# sample-user-app GraphQL api
+
+directive @admin on FIELD_DEFINITION
+
+enum Gender {
+  MALE,
+  FEMALE
+}
+
+type User {
+  id: ID!
+  firstName: String
+  lastName: String
+  email: String!
+  phone: String
+  gender: Gender
+  admin: Boolean!
+}
+
+type LoginPayload {
+  user: User!
+  token: String!
+  refreshToken: String!
+}
+
+type RefreshPayload {
+  token: String!
+  refreshToken: String!
+}
+
+type Query {
+  users: [User!]! @admin
+}
+
+input UserInput {
+  firstName: String
+  lastName: String
+  email: String!
+  phone: String
+  gender: Gender
+  admin: Boolean!
+  "Plain text password which will be hashed on server side"
+  password: String!
+}
+
+input UserUpdate {
+  firstName: String
+  lastName: String
+  gender: Gender
+  phone: String
+  admin: Boolean
+}
+
+scalar Void
+
+type Mutation {
+  login(username: String!, password:String!): LoginPayload!
+  """
+  Renew access token
+  """
+  renewToken(refreshToken: String!): RefreshPayload!
+  addUser(input: UserInput!): User! @admin
+  updateUser(id: ID!, input: UserUpdate!): User! @admin
+  removeUser(id: ID!): Void @admin
+}

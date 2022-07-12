@@ -1,0 +1,20 @@
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import { fileURLToPath, URL } from "url";
+
+// https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
+import vuetify from "vite-plugin-vuetify";
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  //base: "http://localhost:8080",
+  build: {
+    target: "esnext",
+  },
+  plugins: [vue(), vuetify({ autoImport: true, styles: "expose" })],
+  resolve: {
+    alias: {
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
+    },
+  },
+});

@@ -1,0 +1,34 @@
+{
+  "name": "sample-users-app",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "serve": "vite preview",
+    "build": "vue-tsc --noEmit && vite build",
+    "dev": "vite",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.6.9",
+    "@mdi/font": "5.9.55",
+    "@vue/apollo-composable": "^4.0.0-alpha.18",
+    "graphql": "^16.5.0",
+    "graphql-tag": "^2.12.6",
+    "pinia": "^2.0.14",
+    "roboto-fontface": "*",
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.16",
+    "vuetify": "^3.0.0-beta.0",
+    "webfontloader": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/webfontloader": "^1.6.34",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "sass": "^1.46.0",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.9",
+    "vite-plugin-vuetify": "^1.0.0-alpha.0",
+    "vue-cli-plugin-vuetify": "~2.5.1",
+    "vue-tsc": "^0.30.2"
+  }
+}
